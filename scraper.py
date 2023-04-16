@@ -4,7 +4,6 @@
 # Script Use Args: python3 scraper.py <TOKOPEDIA|BHINNEKA|SHOPEE> <search_link> <max_page>
 
 import sys
-import requests
 from datetime import datetime
 from selenium import webdriver
 import pandas as pd
@@ -13,8 +12,6 @@ from tokopedia import TokopediaScraper
 
 class Scraper:
     def __init__(self, web_service=sys.argv[1], page_url=sys.argv[2], max_page=sys.argv[3]):
-        self.session = requests.Session()
-        self.headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36 OPR/58.0.3135.79'}
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.web_service = web_service
